@@ -31,4 +31,22 @@ allprojects {
     }
 }
 
+plugins.withType<org.jetbrains.kotlin.gradle.targets.js.yarn.YarnPlugin> {
+    the<org.jetbrains.kotlin.gradle.targets.js.yarn.YarnRootExtension>().apply {
+        resolution("ws", "8.21.0")
+        resolution("diff", "8.0.3")
+        resolution("body-parser", "1.20.9")
+        resolution("serialize-javascript", "7.1.4")
+        resolution("fast-uri", "3.1.9")
+        resolution("follow-redirects", "1.16.3")
+        resolution("glob", "14.0.6")
+        resolution("minimatch", "11.0.8")
+    }
+}
+plugins.withType<org.jetbrains.kotlin.gradle.targets.wasm.yarn.WasmYarnPlugin> {
+    the<org.jetbrains.kotlin.gradle.targets.wasm.yarn.WasmYarnRootExtension>().apply {
+        resolution("ws", "8.21.0")
+    }
+}
+
 apply(from = "gradle/releases.gradle.kts")
